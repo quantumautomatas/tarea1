@@ -23,14 +23,86 @@
         \begin{itemize}
             \item {
                 Identidad $v\epsilon = \epsilon v = v$.
+
+                Por como está definida la concatenación, se tiene que $v \epsilon = v$.\\
+                Entonces sólo falta verificar que $\epsilon v = v$.
+
+                Por inducción sobre $v$.
+                \begin{itemize}
+                    \item {
+                        Casp base $v = \epsilon$\\
+                        Entonces $\epsilon v = \epsilon\epsilon$\\
+                        Y por la definición de concatenación, 
+                        $\epsilon\epsilon = \epsilon = v$.\\
+                        Por lo tanto $\epsilon v = v$
+                    }
+
+                    \item {
+                        Paso inductivo, con hipótesis $\epsilon v = v$.\\ 
+                        Hay que demostrar que $\epsilon (va) = va$, con $a$ un símbolo del alfabeto de $v$.\\
+                        Por la definición de la concatenación, tenemos que $\epsilon (va) = (\epsilon v)a$.\\
+                        Y usando la hipótesis, $ = va$.\\
+                        Por lo que $\epsilon (va) = va$
+                    }
+                \end{itemize}
+                Por lo tanto, $v \epsilon = v = \epsilon v$
             }
 
             \item {
                 Longitud $|vw| = |v| + |w|$.
+
+                Por inducción sobre $w$.
+
+                \begin{itemize}
+                    \item {
+                        Caso base $w = \epsilon$\\
+                        Entonces $vw = v\epsilon = v$\\
+                        Y por la definición de longitud
+                        \[|vw| = |v| = |v| + 0 = |v| + |\epsilon| = |v| + |w|\]
+                    }
+
+                    \item {
+                        Paso inductivo, con hipótesis $|vw| = |v| + |w|$.\\ 
+                        Hay que demostrar que $|v(wa)| = |v| + |wa|$, con $a$ 
+                        un símbolo del alfabeto de $v$.\\
+                        Como la concatenación asocia (demostrado en clase), 
+                        tenemos que $v(wa) = (vw)a$.\\
+                        Y por la definición longitud, tenemos que
+                        $|(vw)a| = |vw| + 1$.\\
+                        Y usando la hipótesis $|vw| + 1 = |v| + |w| + 1$.\\
+                        Luego, notemos que $|wa| = |w| + 1$, por la definición de longitud.\\
+                        Por lo que $|v(wa)| = |v| + |w| + 1 = |v| + |wa|$.
+                    }
+                \end{itemize}
+                Por lo tanto, se cumple que $|vw| = |v| + |w|$.
             }
 
             \item {
                 Reversa $(v^R)^R = v$
+
+                Por inducción sobre $v$
+                \begin{itemize}
+                    \item {
+                        Caso base $v = \epsilon$.\\
+                        Entonces $(v^R)^R = (\epsilon^R)^R = \epsilon ^ R = 
+                        \epsilon = v$, por la definición de reversa.       
+                    }
+
+                    \item {
+                        Paso inductivo, con hipótesis $(v^R)^R = v$.\\
+                        Hay que demostrar que $((va)^R)^R = va$, con $a$ un 
+                        símbolo del alfabeto de $v$.\\
+                        Por definición de reversa, $(va)^R = av^R$.\\
+                        Luego, utilizando la propiedad de $(uw)^R = w^Ru^R$ 
+                        (demostrada en clase), $(av^R)^R = (v^R)^Ra^R$.
+                        Y usando la hipótesis, $(v^R)^Ra^R = va^R$.\\
+                        Luego, notemos que $a = \epsilon a$, por la propiedad 
+                        de identidad. Por lo que $a^R = (\epsilon a)^R = 
+                        a  \epsilon^R = a \epsilon = a$.
+                        Entonces $va^R = va$, por lo que $((va)^R)^R = va$.
+                    }
+                \end{itemize}
+                Por lo tanto, siempre se cumple que $(v^R)^R = v$.
             }
         \end{itemize}
     }
